@@ -41,6 +41,32 @@
  let say = new Fn('Jhon');
  say.hello();
  ```
+
+Как для объекта `point` добавить ссылки на методы из `pointMethods`?
+```javascript
+const pointMethods = {
+  move(x, y) {
+    this.x += x;
+    this.y += y;
+  },
+
+  toString() {
+    return `[${this.x}, ${this.y}]`;
+  },
+};
+
+const point = {
+  x: 10,
+  y: 20,
+};
+
+// Ответ
+// point.__proto__ = pointMethods;
+Object.setPrototypeOf(point, pointMethods);
+
+point.move(2, 3);
+console.log(point.toString());
+```
 ## 2. Как скопировать объект? И какие виды копирования объекта бывают?
 
   Виды копирования: Поверхностное - копирование происходит вглубь на один уровень
