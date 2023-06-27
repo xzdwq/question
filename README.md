@@ -90,7 +90,7 @@ console.log(point.toString());
 ```
     
   Глубокое копирование - `JSON.parse(JSON.stringify(obj))`
-  Копbрование удобно если в объекте нет методов и undefined свойств:
+  Копирование удобно если в объекте нет методов и undefined свойств:
   ```javascript
   const sourceObject = {
     title: 'obj',
