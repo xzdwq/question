@@ -6,19 +6,18 @@
      - За счет механизма `Event loop`
   3. Как обрабатывает задачи `Event loop`?
      - Сначала синхронный код, потом все микротаски из очереди, потом одну макротаску и т.д. по кругу.  
-  
-  3.1. Как будет выполняться код?
-       ```javascript
-       fetch('http://...')
-         .then((resp) => console.log(resp))
-         .catch((err) => console.log(err))
+  4. Как будет выполняться код?
+     ```javascript
+     fetch('http://...')
+       .then((resp) => console.log(resp))
+       .catch((err) => console.log(err))
 
-       while (true) console.log(1)
-       ```
+     while (true) console.log(1)
+     ```
      - JS отправит fetch запрос, но никогда не выводет ни resopnse ни error в случае ошибки, т.к. будет занят выполнением синхронного бесконечного цикла while.
-  4. Я хочу использовать `console.log()`, но не хочу каждый раз писать это полностью, как я могу сократить вызов до `log()` или `doLog`?
+  5. Я хочу использовать `console.log()`, но не хочу каждый раз писать это полностью, как я могу сократить вызов до `log()` или `doLog`?
      - `const { log } = console;` или `const { log: doLog } = console`
-  5. Порядок вывода в консоль
+  6. Порядок вывода в консоль
      ```javascript
      console.log(1)
      setTimeout(() => console.log(2))
@@ -29,7 +28,7 @@
      console.log(7)
      ```
      - 1, 7, 3, 5, 2, 6, 4
-  6. Что выведет цепочка вызова?
+  7. Что выведет цепочка вызова?
      ```javascript
      Promise
        .reject('a')
@@ -55,7 +54,7 @@
      ```
      - a1d1d3
 
-  7. Что выведет в консоль?
+  8. Что выведет в консоль?
      ```javasctipt
       console.log(typeof f1)
       console.log(typeof f2)
