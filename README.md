@@ -1,8 +1,25 @@
 # JS
 ## Start
-  1. Я хочу использовать `console.log()`, но не хочу каждый раз писать это полностью, как я могу сократить вызов до `log()` или `doLog`
-
-  - `const { log } = console;` или `const { log: doLog } = console`
+  1. JS синхронный или асинхронный и многопоточный или однопоточный?
+     - Синхронный и однопоточный
+  2. За счет чего можно делать асинхронные операции?
+     - За счет механизма `Event loop`
+  3. Как обрабатывает задачи `Event loop`?
+     - Сначала синхронный код, потом все микротаски из очереди, потом одну макротаску и т.д. по кругу.
+  4. Я хочу использовать `console.log()`, но не хочу каждый раз писать это полностью, как я могу сократить вызов до `log()` или `doLog`?
+     - `const { log } = console;` или `const { log: doLog } = console`
+  5. Порядок вывода в консоль
+     ```javascript
+     console.log(1)
+     setTimeout(() => console.log(2))
+     Promise.resolve().then(() => console.log(3))
+     Promise.resolve().then(() => setTimeout(() => console.log(4)))
+     Promise.resolve().then(() => console.log(5))
+     setTimeout(() => console.log(6))
+     console.log(7)
+     ```
+     - 1, 7, 3, 5, 2, 6, 4 
+     
 
 ## 1. `prototype` и `__proto__`
 
