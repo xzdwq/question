@@ -18,7 +18,32 @@
      setTimeout(() => console.log(6))
      console.log(7)
      ```
-     - 1, 7, 3, 5, 2, 6, 4 
+     - 1, 7, 3, 5, 2, 6, 4
+  6. Что выведет цепочка вызова?
+     ```javascript
+     Promise
+       .reject('a')
+       .catch(i => i + 'b')
+       .catch(i => i + 'c')
+       .then(i => i + 'd')
+       .finally(i => i + 'e')
+       .then(i => console.log(i))
+     ```
+     - abd
+  
+     ```javascript
+     Promise
+       .reject('a')
+       .catch(i => i + '1', i => i + '2')
+       .catch(i => i + 'b')
+       .catch(i => i + 'c')
+       .then(i => i + 'd1')
+       .then('d2')
+       .then(i => i + 'd3')
+       .finally(i => i + 'e')
+       .then(i => console.log(i))
+     ```
+     - a1d1d3
      
 
 ## 1. `prototype` и `__proto__`
