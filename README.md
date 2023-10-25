@@ -26,8 +26,12 @@
      Promise.resolve().then(() => console.log(5))
      setTimeout(() => console.log(6))
      console.log(7)
+     new Promise(resolve => {
+       console.log(8)
+       setTimeout(() => console.log(9))
+     }).then(() => console.log(10))
      ```
-     - 1, 7, 3, 5, 2, 6, 4
+     - 1,7,8,3,5,2,6,9,4
   7. Что выведет цепочка вызова?
      ```javascript
      Promise
