@@ -44,7 +44,18 @@
        .then(i => console.log(i))
      ```
      - a1d1d3
-     
+
+  7. Что выведет в консоль?
+     ```javasctipt
+      console.log(typeof f1)
+      console.log(typeof f2)
+      console.log(typeof f3)
+      
+      function f1 () {}
+      var f2 = function () {}
+      let f3 = function () {}
+     ```
+     - function, undefined, error
 
 ## 1. `prototype` и `__proto__`
 
