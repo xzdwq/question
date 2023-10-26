@@ -101,7 +101,23 @@
      b &&= 2;
      console.log(b); // Expected output: 0
      ```
-    .at(-1) - берет указанный индекс из массива, в случае -1, берет первый с конца и .т.д.  
+    .at(-1) - берет указанный индекс из массива, в случае -1, берет первый с конца и .т.д.
+
+  9. Напишите, какое значение должно быть в theVal, чтобы получилось true true
+      ```javascript
+      const theVal = ...;
+      
+      console.log(`${theVal}` === 'Yo', theVal == 3); // true true
+      ```
+      Ответ:  
+      ```javascript
+      const theVal = {
+        toString: () => 'Yo',
+        valueOf: () => 3
+      };
+      
+      console.log(`${theVal}` === 'Yo', theVal == 3); // true true
+      ```
 
 ## 1. `prototype` и `__proto__`
 
