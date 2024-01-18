@@ -59,7 +59,7 @@
      - a1d1d3
 
   8. Что выведет в консоль?
-     ```javasctipt
+     ```javascript
       console.log(typeof f1)
       console.log(typeof f2)
       console.log(typeof f3)
