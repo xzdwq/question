@@ -71,7 +71,7 @@
      - function, undefined, error
 
  8. Объяснить что это в JS  
-     .?  
+     ?.  
      ...  
      ??  
      ||=  
