@@ -317,3 +317,49 @@ console.log(point.toString());
 </div>
 ```
 При повторной отрисовке компонента, если `v-memo="[item.id === selected]` остались неизменными, то будут пропущены все обновления этого `<div>` и его дочерних элементов. Фактически, будет пропущено даже создание VNode виртуального DOM, поскольку можно переиспользовать мемоизировую копию поддерева.
+## 4. Представьте что у нас есть структура:
+```vue
+// Parent.vue
+<template>
+  <Child :data="count" />
+</template>
+
+<script setup>
+  const count = ref(0)
+</script>
+
+// Child.vue
+<template>
+  <ChildOfChild :data="count" />
+</template>
+
+// ChildOfChild.vue
+<template>
+  <button @click="onClick" />
+</template>
+
+<script setup>
+// onClick -> count + 1
+</script>
+```
+Как мы можем в компоненте `ChildOfChild.vue` мутировать count из `Parent.vue`?
+
+Через `producde - inject`
+```vue
+// Parent.vue
+<script setup>
+  const count = ref(0)
+  provide('count', count)
+</script>
+
+// ChildOfChild.vue
+<template>
+  <button @click="onClick" />
+</template>
+
+<script setup>
+  const count = inject('count')
+  const onClick = () => count.value + 1
+</script>
+```
+
