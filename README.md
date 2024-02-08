@@ -321,7 +321,7 @@ console.log(point.toString());
 ```vue
 // Parent.vue
 <template>
-  <Child :data="count" />
+  <Child :count="count" />
 </template>
 
 <script setup>
@@ -330,8 +330,14 @@ console.log(point.toString());
 
 // Child.vue
 <template>
-  <ChildOfChild :data="count" />
+  <ChildOfChild :count="count" />
 </template>
+
+<script setup>
+const props = defineProps<{
+  count: number
+}>()
+</script>
 
 // ChildOfChild.vue
 <template>
@@ -339,6 +345,9 @@ console.log(point.toString());
 </template>
 
 <script setup>
+const props = defineProps<{
+  count: number
+}>()
 // onClick -> count + 1
 </script>
 ```
